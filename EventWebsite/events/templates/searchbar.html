@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3 align="center"> show the event</h3>
+<div class="container">
+  <div class="row justify-container-center m-4">
+
+
+    {% if fetchevent %}
+    {% for event in fetchevent %}
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0"> 
+        <div class="col-md-4">
+        <img src="{{ event.image.url }}" class="img-fluid rounded-start" alt="image not found">
+      </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ event.event_name }}</h5>
+            <p class="card-text">{{ event.data }}</p>
+            <p class="card-text">{{ event.location }}</p>
+            <div>
+              <span></span><span></span><span class="heart">&#x2764;</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div></div>
+    {% endfor %}
+    {% else %}
+  </div>
+  <P> sorry this page not found</P>
+  {% endif %}
+
+
+
+  {% endblock %}
